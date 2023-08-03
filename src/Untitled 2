@@ -1,0 +1,20 @@
+마이바티스를 배웠다. 
+
+마이바티스는 
+1. 자바코드에는 자바만 있게 하도록 한다.
+2. DAO에서 했었던 절차들을 마이바티스가 해준다.
+
+마이바티스 동작 구조
+1. mybatis-config.xml 파일에 DB접속구조와 쿼리문 위치 정보를 넣는다.
+2. sqlSessionTemplate를 이용하여 SqlSession을 생성한다.
+-mybatis-config.xml파일을 읽는데 stream이 사용되낟.
+연결 노동자가 연결 공장을 만들고 연결 공장은 연결을 만듬
+3. 나머지는 워낼 하던 대로 하면됨.
+1.JSP 만들고
+2.Controller만들고 service 메소드 호출
+3.Service의 메소드는 연결 생성 후 DAO 호출(DML의 경우 COMMIT과 ROLLBACK)후 session 닫기 
+4. DAO의 메소드는 간결해진다. session을 통해서 실행할 쿼리문에 따라 적절한 메소드를 호출하고 그 메소드를
+mapper.xml에 있는 쿼리문을 호출하여 실행함.
+ex)int result = session.insert("MemberMapper.insertMember",member); return result;
+5. mapper.xml의 해당 쿼리문에 가서 #{필드명}으로 getter() 를 대신하여 값을 세팅한다.
+ex)<insert id = "insertMember"> INSERT INTO MEMBER_WEB VALUEs(#{memberId}.....)</insert>
