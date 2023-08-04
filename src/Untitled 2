@@ -18,3 +18,12 @@ mapper.xml에 있는 쿼리문을 호출하여 실행함.
 ex)int result = session.insert("MemberMapper.insertMember",member); return result;
 5. mapper.xml의 해당 쿼리문에 가서 #{필드명}으로 getter() 를 대신하여 값을 세팅한다.
 ex)<insert id = "insertMember"> INSERT INTO MEMBER_WEB VALUEs(#{memberId}.....)</insert>
+
+
+23/08/04
+구현했던 기능들
+1. 회원가입
+2. 회원탈퇴
+3. 회원수정
+4. 로그인
+5. 회원 상세 조회(마이페이지)

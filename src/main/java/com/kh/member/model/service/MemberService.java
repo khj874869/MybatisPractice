@@ -55,4 +55,10 @@ public class MemberService {
 		session.close();
 		return mOne;
 	}
+	public Member selectOneById(String memberId) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		Member member = mDao.mDaoselectOneById(session,memberId);
+		session.close();
+		return member;
+	}
 }

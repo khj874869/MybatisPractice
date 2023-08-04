@@ -26,6 +26,11 @@ public class MemberDAO {
 		
 		return mOne;
 	}
+
+	public Member mDaoselectOneById(SqlSession session, String memberId) {
+		Member member = session.selectOne("MemberMapper.selectOneById",memberId);
+		return member;
+	}
 	
 }
 
